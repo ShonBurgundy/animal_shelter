@@ -41,6 +41,11 @@ describe 'get animals by id', :type => :request do
     expect(response_to.name).to eq('batman')
   end
 
+  it 'returns 200 status ok' do
+    response_to = Animal.last
+    expect(response).to have_http_status(:ok)
+  end
+
 end
 
 # --------------- ERROR MESSAGE TESTS ---------------
