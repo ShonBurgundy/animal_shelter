@@ -1,6 +1,8 @@
 require 'rails_helper'
 require 'pry'
 
+# --------------- GET ALL TESTS ---------------
+
 describe "get all animals route", :type => :request do 
   let!(:animals) { FactoryBot.create_list(:animal, 20)}
 
@@ -20,9 +22,28 @@ describe "get all animals route", :type => :request do
 
 end
 
-# describe 'get animals by id', :type => :request do
+# --------------- GET by id TESTS ---------------
+
+describe 'get animals by id', :type => :request do
   
-# end
+  before do
+    post '/animals', params: {:species => 'dog', :name => 'batman'}
+    get '/animals', params: {:species => 'dog', :name => 'batman'}
+  end
+
+  it 'returns an animals specie' do
+    response_to = Animal.last
+    expect(response_to.species).to eq('dog')
+  end
+
+  it 'returns an animals name' do
+    response_to = Animal.last
+    expect(response_to.name).to eq('batman')
+  end
+
+end
+
+# --------------- ERROR MESSAGE TESTS ---------------
 
 describe "GET request error messages", :type => :request do
   before { get '/animals/5000'}
