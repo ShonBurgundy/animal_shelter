@@ -11,7 +11,7 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = Animal.create(animal_params)
+    @animal = Animal.create!(animal_params)
     json_response(@animal)
   end
 
