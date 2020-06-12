@@ -31,7 +31,10 @@ module AnimalShelter
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    config.middleware.use Rack::Throttle::Interval, :min => 0.5
+    if !Rails.env.test? 
+      config.middleware.use Rack::Throttle::Interval, :min => 0.5
+    end
+
     config.api_only = true
   end
 end
