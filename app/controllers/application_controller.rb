@@ -7,9 +7,9 @@ class ApplicationController < ActionController::API
   end
 
 
-  # ----------------- POST REQUEST EXCEPTIONS -----------------
+# ----------------- POST REQUEST EXCEPTIONS -----------------
   rescue_from ActiveRecord::RecordInvalid do |exception|
     json_response({ message: exception.message }, :unprocessable_entity)
   end
-  
+
 end
