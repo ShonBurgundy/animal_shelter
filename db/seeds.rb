@@ -8,6 +8,7 @@
 class Seed
 
   def self.begin
+    Animal.delete_all
     seed = Seed.new
     seed.generate_animals
   end
@@ -15,10 +16,10 @@ class Seed
   def generate_animals
     25.times do |i|
       animal = Animal.create!(
-        dog: Faker::DcComics.hero,
-        cat: Faker::Creature::Cat.name
+        species: Faker::Creature::Animal.name,
+        name: Faker::DcComics.hero
       )
-      puts "Animals #{i}: Dogs name: #{animal.dog}, Cats name: #{animal.cat}."
+      puts "Animals #{i}: Animal: #{animal.species}, Name: #{animal.name}."
     end
   end
 end
