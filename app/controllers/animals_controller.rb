@@ -30,6 +30,7 @@ class AnimalsController < ApplicationController
       render status: 200, json: {
         message: "Animal successfully deleted!"
       }
+    end
   end
 
   private 
