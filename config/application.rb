@@ -10,6 +10,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
+require 'rack/throttle'
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -30,6 +31,7 @@ module AnimalShelter
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+    config.middleware.use Rack::Throttle::Interval, :min => 0.5
     config.api_only = true
   end
 end
