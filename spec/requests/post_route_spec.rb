@@ -9,4 +9,8 @@ describe "post an animal route", :type => :request do
   it 'returns the animals species' do
     expect(JSON.parse(response.body)['species']).to eq('dog')
   end
+
+  it 'returns an animal name' do
+    expect(JSON.parse(response.body)['name']).to eq('batman')
+  end
 end
