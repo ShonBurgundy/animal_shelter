@@ -32,4 +32,8 @@ describe "post route errors", :type => :request do
   it "returns error message when params are not included in request" do
     expect(JSON.parse(response.body)).to eq({"message"=>"Validation failed: Species can't be blank, Name can't be blank"})
   end
+
+  it "returns status 422 Unprocessable Entity" do
+    expect(response).to have_http_status(:unprocessable_entity)
+  end
 end
