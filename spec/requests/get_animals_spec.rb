@@ -13,5 +13,18 @@ describe "get all animals route", :type => :request do
   it 'returns status code 200' do
     expect(response).to have_http_status(:success)
   end
-  
+
+  it 'returns status ok' do
+    expect(response).to have_http_status(:ok)
+  end
+
+end
+
+describe "GET request error messages", :type => :request do
+  before { get '/animals/5000'}
+
+  it 'returns an error message for unidentifiable animal' do
+    expect(JSON.parse(response.body)).to eq({"message"=>"dddd"})
+  end
+
 end
