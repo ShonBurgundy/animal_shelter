@@ -20,11 +20,19 @@ describe "get all animals route", :type => :request do
 
 end
 
+# describe 'get animals by id', :type => :request do
+  
+# end
+
 describe "GET request error messages", :type => :request do
   before { get '/animals/5000'}
 
   it 'returns an error message for unidentifiable animal' do
     expect(JSON.parse(response.body)).to eq({"message"=>"Couldn't find Animal with 'id'=5000"})
+  end
+
+  it 'returns status 404' do
+    expect(response).to have_http_status(:not_found)
   end
 
 end
