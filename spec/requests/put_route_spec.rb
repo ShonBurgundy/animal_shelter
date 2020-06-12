@@ -11,4 +11,8 @@ describe 'put route', :type => :request do
   it 'updates an animal with new name' do
     expect(JSON.parse(response.body)).to eq({"message"=>"This animal has been updated successfully!"})
   end
+
+  it 'returns status 200 ok when update is succesfull' do
+    expect(response).to have_http_status(:ok)
+  end
 end
