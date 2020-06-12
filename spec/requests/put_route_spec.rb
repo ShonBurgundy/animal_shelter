@@ -32,4 +32,7 @@ describe 'put route errors', :type => :request do
     expect(JSON.parse(response.body)).to eq({"message"=>"Couldn't find Animal with 'id'=5000"})
   end
 
+  it 'returns status 404 not found when update is unsuccessfull' do
+    expect(response).to have_http_status(:not_found)
+  end
 end
