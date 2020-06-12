@@ -24,7 +24,7 @@ describe "GET request error messages", :type => :request do
   before { get '/animals/5000'}
 
   it 'returns an error message for unidentifiable animal' do
-    expect(JSON.parse(response.body)).to eq({"message"=>"dddd"})
+    expect(JSON.parse(response.body)).to eq({"message"=>"Couldn't find Animal with 'id'=5000"})
   end
 
 end
