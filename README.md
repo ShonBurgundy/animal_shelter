@@ -34,7 +34,8 @@ _A custom built api which will provide users with full CRUD functionality for an
 ## Endpoints
 
 * In PostMan - GET request http://localhost:YOURPORTNUMBER/animals/ will return list of all animals
-* If you would like to scope further. GET request http://localhost:YOURPORTNUMBER/animals/:id (:id should be specific id #)
+* If you would like to scope by id. GET request http://localhost:YOURPORTNUMBER/animals/:id (:id) should be replaced by existing animal id.
+* If you would like to scope by random. GET request http://localhost:YOURPORTNUMBER/animals/?random This will return a random animal.
 * To search by Species. GET request http://localhost:YOURPORTNUMBER/animals/ In Key type species, In Value type Species you are searching for.
 * To Add an Animal. POST request http://localhost:YOURPORTNUMBER/animals/ In Key type animal species, In Value type animal name.
 * _FOR UPDATING AND DELETING INPUTTED ID MUST ALREADY EXIST OR THEY WILL FAIL!_

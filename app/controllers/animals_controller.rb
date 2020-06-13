@@ -1,14 +1,15 @@
 class AnimalsController < ApplicationController
 
   def index
-    if params[:species]
+    if params[:random]
+      @animals = Animal.all.sample
+    elsif params[:species]
       species = params[:species]
       @animals = Animal.search(species)
-      json_response(@animals)
     else
       @animals = Animal.all
-      json_response(@animals)
     end
+    json_response(@animals)
   end
 
   def show
