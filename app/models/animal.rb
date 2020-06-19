@@ -7,4 +7,5 @@ class Animal < ApplicationRecord
   def self.search(srch_value)
     search_animal(srch_value)
   end
+
 end

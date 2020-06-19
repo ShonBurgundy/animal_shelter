@@ -1,8 +1,8 @@
 class AnimalsController < ApplicationController
 
   def index
-    if params[:random]
-      @animals = Animal.all.sample
+    if params.has_key? "random"
+      @animals = Animal.order("RANDOM()").all
     elsif params[:species]
       species = params[:species]
       @animals = Animal.search(species)
